@@ -41,9 +41,11 @@
     <!-- Page level plugins -->
     <script src="<?php echo RUTAGENERAL; ?>templates/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="<?php echo RUTAGENERAL; ?>templates/js/demo/chart-area-demo.js"></script>
-    <script src="<?php echo RUTAGENERAL; ?>templates/js/demo/chart-pie-demo.js"></script>
+
+    
+    
+    <script src="<?php echo RUTAGENERAL; ?>js/jquery-ui.min.js"></script>
+    
 
 </body>
 

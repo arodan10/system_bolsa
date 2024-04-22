@@ -35,13 +35,11 @@
                     <?php
                 echo "</td>";
 
-
             echo "</tr>";
         }
         echo "</table>";
-
     ?>    
-
+    <div id="divdialog"></div>
     
 </div>
 <!-- /.container-fluid --> 
@@ -50,16 +48,20 @@
     include("../includes/foot.php");
 ?>
 
-
-
 <script>
-
+    /*
+    $(document).ready(function(){
+        $("#divdialog").dialog({
+            width:500,
+            height:400,
+            title:"Asignar usuario..",
+        });
+        $( "#divdialog" ).dialog( "open" );
+    });
+    */
     function f_editar(pid){
-        //alert('aqui funcion editar, todo listo para modificar el id '+pid);
-
         //redireccionamos hacia el archivo 'modificar_usuario.php'
         location.href="modificar_usuario.php?pid="+pid;
-
     }
 
 </script>    

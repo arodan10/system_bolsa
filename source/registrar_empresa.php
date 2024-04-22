@@ -43,13 +43,7 @@
         <input type="email" class="form-control" name="correo" required>
       </div>
     </div>
-
-    <div class="row mb-3">
-      <label for="id_usuario" class="col-sm-2 col-form-label">ID Usuario</label>
-      <div class="col-sm-10">
-        <input type="number" class="form-control" name="id_usuario" required>
-      </div>
-    </div>
+    
 
     <button type="submit" class="btn btn-primary">Registrar Empresa</button>
     </form>

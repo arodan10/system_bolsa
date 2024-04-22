@@ -21,7 +21,45 @@ $conexion = conectar();
         ?>
         <button type="button" class="btn btn-primary" onClick="f_editar('<?php echo $fila['id']; ?>');">Editar</button>
         <button type="button" class="btn btn-danger" onClick="f_eliminar('<?php echo $fila['id']; ?>');">Eliminar</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#asignarUsuarioModal<?php echo $fila['id']; ?>">Asignar</button>
+        
+        <div class="modal fade" id="asignarUsuarioModal<?php echo $fila['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="asignarUsuarioModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="asignarUsuarioModalLabel">Asignar Usuario a Empresa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!-- Contenido del modal: formulario para asignar usuario -->
+                <form action="asignar_usuario.php" method="POST">
+                  <input type="hidden" name="id_empresa" value="<?php echo $fila['id']; ?>">
+                  <div class="form-group">
+                    <label for="usuario">Seleccionar Usuario:</label>
+                    <select class="form-control" name="id_usuario" required>
+                    <?php
+                      $usuarios = mysqli_query($conexion, "SELECT id, nombres FROM usuarios WHERE asignacion=0");
+                      while ($user = mysqli_fetch_array($usuarios)) {
+                          echo "<option value='" . $user['id'] . "'>" . $user['nombres'] . "</option>";
+                      }
+                      ?>
+
+                    </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Asignar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <?php
+        
         echo "</td>";
         echo "</tr>";
     }
